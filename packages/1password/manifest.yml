@@ -1,0 +1,40 @@
+format_version: 1.0.0
+name: 1password
+title: "1Password Events Reporting"
+version: 0.1.0
+license: basic
+description: "This Elastic integration collects events from 1Password Events Reporting."
+type: integration
+categories:
+  - custom
+  - security
+release: beta
+conditions:
+  kibana.version: "^7.14.0"
+screenshots:
+  - src: /img/1password-signinattempts-screenshot.png
+    title: Sign-in attempts
+    size: 1918x963
+    type: image/png
+  - src: /img/1password-itemusages-screenshot.png
+    title: Item usages
+    size: 1916x965
+    type: image/png
+icons:
+  - src: /img/1password-logo-light-bg.svg
+    title: 1Password
+    size: 116x116
+    type: image/svg+xml
+policy_templates:
+  - name: 1password
+    title: 1Password Events
+    description: Collect events from 1Password Events Reporting
+    inputs:
+      - type: 1password_signin_attempts
+        title: Collect 1Password sign-in attempt events
+        description: Collect sign-in attempt from 1Password via the 1Password Events API
+      - type: 1password_item_usages
+        title: Collect 1Password item usages events
+        description: Collect item usages from 1Password via the 1Password Events API
+owner:
+  github: elastic/security-external-integrations

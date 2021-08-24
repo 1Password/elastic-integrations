@@ -1,0 +1,21 @@
+title: "Collect 1Password item usages events"
+type: logs
+streams:
+  - input: 1password_item_usages
+    title: "Collect 1Password item usages events"
+    description: "Collect item usages from 1Password via the 1Password Events API"
+    vars:
+      - name: auth_token
+        title: Bearer token (JSON Web Token)
+        type: password
+        multi: false
+        required: true
+        show_user: true
+      - name: cursor_state_file
+        type: text
+        title: Path to cursor state file
+        multi: false
+        required: false
+        show_user: true
+        default: "itemusages.eventsapibeatstate"
+    template_path: item_usages.yml.hbs

@@ -1,0 +1,12 @@
+- external: ecs
+  name: user.id
+- external: ecs
+  name: user.full_name
+- external: ecs
+  name: user.email
+- external: ecs
+  name: os.name
+- external: ecs
+  name: os.version
+- external: ecs
+  name: host.ip

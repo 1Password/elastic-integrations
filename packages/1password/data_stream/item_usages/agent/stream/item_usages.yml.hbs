@@ -1,0 +1,11 @@
+eventsapibeat:
+  insecure_skip_verify: false
+  item_usages:
+    enabled: true
+    {{#if auth_token}}auth_token: "{{auth_token}}"{{/if}}
+    sample_frequency: "10s"
+    {{#if cursor_state_file}}cursor_state_file: "{{cursor_state_file}}"{{/if}}
+    starting_cursor: >
+      { "limit": 1000, "start_time": "2020-01-01T00:00:00Z" }
+  signin_attempts:
+    enabled: false
