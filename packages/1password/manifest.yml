@@ -10,7 +10,7 @@ categories:
   - security
 release: beta
 conditions:
-  kibana.version: "^7.14.0"
+  kibana.version: "^8.0.0"
 screenshots:
   - src: /img/1password-signinattempts-screenshot.png
     title: Sign-in attempts
@@ -30,11 +30,30 @@ policy_templates:
     title: 1Password Events
     description: Collect events from 1Password Events Reporting
     inputs:
-      - type: 1password_signin_attempts
-        title: Collect 1Password sign-in attempt events
-        description: Collect sign-in attempt from 1Password via the 1Password Events API
-      - type: 1password_item_usages
-        title: Collect 1Password item usages events
-        description: Collect item usages from 1Password via the 1Password Events API
+      - type: httpjson
+        title: Collect events from 1Password Events API
+        description: Collect sign-in attempt and item usages from 1Password via the 1Password Events API
+        vars:
+          - name: url
+            type: text
+            title: URL of 1Password Enterprise Server
+            description: i.e. scheme://host:port,  path is automatic
+            show_user: true
+            required: true
+            default: https://events.1password.com
+          - name: token
+            type: password
+            title: 1Password Authorization Token
+            description: |
+              Bearer Token, e.g. "eyJhbGciO..."
+            show_user: true
+            required: true
+          - name: ssl
+            type: yaml
+            title: SSL Configuration
+            description: i.e. certificate_authorities, supported_protocols, verification_mode etc.
+            multi: false
+            required: false
+            show_user: false
 owner:
   github: elastic/security-external-integrations
