@@ -4,7 +4,7 @@
     - name: uuid
       type: keyword
     - name: used_version
-      type: keyword
+      type: integer
     - name: vault_uuid
       type: keyword
     - name: item_uuid

@@ -1,3 +1,5 @@
+- name: ecs.version
+  external: ecs
 - external: ecs
   name: user.id
 - external: ecs

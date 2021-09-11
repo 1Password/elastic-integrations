@@ -7,13 +7,13 @@ request.ssl: {{ssl}}
 {{/if}}
 request.transforms:
   - set:
-      target: header.Content-Type
-      value: application/json
+      target: "header.Content-Type"
+      value: "application/json"
   - set:
-      target: header.User-Agent
-      value: 1Password-Elastic-Filebeat/0.0.1
+      target: "header.User-Agent"
+      value: "1Password-Elastic-Filebeat/0.0.1"
   - set:
-      target: header.Authorization
+      target: "header.Authorization"
       value: 'Bearer {{token}}'
   - set:
       target: body.cursor
@@ -40,6 +40,9 @@ response.split:
   target: body.items
   type: array
 response.pagination:
+  - set:
+      target: body.cursor
+      value: '[[.last_response.body.cursor]]'
   - delete:
       target: body.start_time
   - delete:
