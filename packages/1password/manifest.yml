@@ -36,8 +36,9 @@ policy_templates:
         vars:
           - name: url
             type: text
-            title: URL of 1Password Enterprise Server
-            description: i.e. scheme://host:port,  path is automatic
+            title: URL of 1Password Events API Server
+            description: |
+              options: https://events.1password.com, https://events.1password.ca, https://events.1password.eu, https://events.ent.1password.com. path is automatic
             show_user: true
             required: true
             default: https://events.1password.com

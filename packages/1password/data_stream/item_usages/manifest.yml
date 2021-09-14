@@ -10,20 +10,20 @@ streams:
       - name: start_time
         type: text
         title: Start Time
-        description: RFC3339 formatted date
+        description: Date and time from where to start retrieving events. RFC3339 date format
         show_user: true
         required: false
         default: 2021-01-01T00:00:00Z
       - name: end_time
         type: text
         title: End Time
-        description: RFC3339 formatted date
+        description: Date and time at where to stop retrieving events. RFC3339 date format
         show_user: false
         required: false
       - name: limit
         type: integer
         title: Limit
-        description: Limit
+        description: Number of events to fetch on each request
         show_user: false
         required: true
         default: 1000
